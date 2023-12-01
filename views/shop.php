@@ -55,12 +55,17 @@
     </section>
     <div >
     <div class="category-bar">
+      <?php 
+        $sql="SELECT*FROM loai_hang";
+        $show_dm=pdo_query($sql);
+        foreach($show_dm as $dm){  
+          extract($dm);
+          $id="index.php?page=danhmuc&ma_loai=".$ma_loai;
+      ?>
       <ul>
-        <li><a href="#">Balenciaga</a></li>
-        <li><a href="#">Gucci</a></li>
-        <li><a href="#">Louis Vuitton</a></li>
-        <li><a href="#">Dior</a></li>
+        <li><a href="<?php echo $id ?>"><?php echo $dm['ten_loai'] ?></a></li>
       </ul>
+      <?php } ?>
     </div>
   </div>
 <section class="tong">

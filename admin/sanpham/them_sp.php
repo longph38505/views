@@ -54,6 +54,8 @@
             <label for="">Loại hàng</label>
             <select name="ma_loai" id="">
             <?php 
+                $sql="SELECT*FROM loai_hang";
+                $listdanhmuc=pdo_query($sql);
                 foreach($listdanhmuc as $list){
                     extract($list);?>
                     <option value="<?php echo $list['ma_loai'] ?>"><?php echo $list['ten_loai'] ?></option>

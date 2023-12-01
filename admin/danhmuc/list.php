@@ -13,6 +13,8 @@
 
             <tbody>
             <?php
+            $sql="SELECT*FROM loai_hang";
+            $listdanhmuc=pdo_query($sql);
 foreach ($listdanhmuc as $list) {
     extract($list);
     $xoa = "index.php?page=xoa_dm&ma_loai=" . $ma_loai;

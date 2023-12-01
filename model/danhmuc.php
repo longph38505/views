@@ -28,10 +28,21 @@ function loadone_loai_hang($maloai ){
     $dm= pdo_query_one($sql);
     return $dm;
 }
-$sql= "SELECT * FROM `loai_hang`";
-$listdanhmuc= pdo_query($sql);
-return $listdanhmuc;
 
+function load_ten_dm($ma_loai ){
+    if($ma_loai>0){
+        $sql="select * from danhmuc where ma_loai =".$ma_loai;
+    $dm= pdo_query_one($sql);
+    return $dm;
+    }else{
+      return "";
+    }
+}
+$sql= "SELECT * FROM `loai_hang`";
+$danhmuc= pdo_query($sql);
+return $danhmuc;
+
+?>
 
 
 ?>

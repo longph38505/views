@@ -222,7 +222,7 @@ if(isset($_GET['page'])){
             break;
 
 
-            case 'binhluan':
+        case 'binhluan':
                 if(isset($_POST['submit'])&&($_POST['submit'])){
                     $nd_bl=$_POST['nd_bl'];
                     
@@ -233,6 +233,23 @@ if(isset($_GET['page'])){
                     header('location: index.php?page=product&ma_sp='.$ma_sp);
                 }
                 break;
+
+                
+
+        case 'danhmuc':
+            if(isset($_GET['danhmuc'])&&($_POST['danhmuc'])){
+                
+            }
+            include "views/danhmuc.php";
+            break;
+
+
+
+
+
+
+
+
 
 
             default:
