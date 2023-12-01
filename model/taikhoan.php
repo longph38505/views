@@ -34,7 +34,7 @@
     }
 
     function update_tk($ma_kh, $ten_kh, $email, $hinh_anh)
-    {
+{
     $sql = "UPDATE khach_hang SET 
             ten_kh = '$ten_kh', 
             email = '$email', 
@@ -43,5 +43,6 @@
 
     pdo_query($sql);
 }
+
 
 ?>

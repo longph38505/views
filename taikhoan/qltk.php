@@ -54,7 +54,7 @@
             <h4><a href="">Quản lý tài khoản</a></h4>
             <h4><a href="index.php?page=login-admin">Đăng nhập quản trị</a></h4>
             <h4><a href="">Đổi mật khẩu</a></h4>
-            <h4><a href="">Đơn hàng</a></h4>
+            <h4><a href="index.php?page=donhang">Đơn hàng</a></h4>
             <h4><a href="index.php?page=logout">Đăng xuất</a></h4>
         </article>
         
@@ -81,7 +81,8 @@
                 </tr>
                 <tr>
                     <th colspan="2">
-                        <center><button ><a href="index.php?page=sua_tk&ma_kh=<?php echo $email['ma_kh'] ?>">Sửa</a></button></center>
+                        <center><button><a href="index.php?page=sua_tk&ma_kh=<?php echo $email['ma_kh'] ?>">Sửa</a></button></center>
+
                     </th>
                 </tr>
                 

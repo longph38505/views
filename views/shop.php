@@ -48,7 +48,7 @@
 <body>
     <section id="page-header">
 
-            <h2>#stayhome</h2>
+            <h2>#Cửa hàng</h2>
 
             <p>Tiết kiệm hơn với phiếu giảm giá & giảm giá tới 70%!</p>
 

@@ -31,7 +31,7 @@
             <input type="date" name="ngay_nhap" class="form-control" id="">
         </div>
         <div>
-            <label for="">Trạng thái</label>
+            <label for="">Trạng thái (sale, đặc biệt)</label>
             <input type="text" name="trang_thai" class="form-control" id="">
         </div>
         <div>

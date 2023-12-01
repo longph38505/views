@@ -37,7 +37,7 @@
             <input type="date" VALUE="<?php echo $chay['ngay_nhap'] ?>"  name="ngay_nhap" class="form-control" id="">
         </div>
         <div>
-            <label for="">Trạng thái</label>
+            <label for="">Trạng thái (sale, đặc biệt)</label>
             <input type="text" VALUE="<?php echo $chay['trang_thai'] ?>"  name="trang_thai" class="form-control" id="">
         </div>
         <div>

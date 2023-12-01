@@ -5,6 +5,8 @@ include "header.php";
 include "./../model/pdo.php";
 include "./../model/sanpham.php";
 include "./../model/taikhoan.php";
+include "./../model/dathang.php";
+include "./../model/binhluan.php";
 include "./../model/danhmuc.php";
 // if(isset($_SESSION['email'])&&(is_array($_SESSION['email']))&&(count($_SESSION['email'])>0)){
 
@@ -89,7 +91,6 @@ if(isset($_GET['page'])){
             if(isset($_GET['ma_loai'])&&($_GET['ma_loai']>0)){
                 delete_loai_hang($_GET['ma_loai']);
             }
-            $listdanhmuc=loadall_loai_hang();
             include "danhmuc/list.php";
             break;
 
@@ -144,15 +145,41 @@ if(isset($_GET['page'])){
                 header('location: index.php?page=khachhang');
                 break;
 
-            default:
-            // Nếu không phải trang nào được xác định, chẳng hạn trang không tồn tại, chuyển hướng hoặc xử lý theo ý bạn.
-            break;
+
+        case 'xoa_bl':
+                if(isset($_GET['ma_bl'])&&($_GET['ma_bl'] >0)){
+                    delete_bl($_GET['ma_bl']);
+                }
+                header('location: index.php?page=binhluan');
+                break;
+
+            
     
         case 'logout':
             session_destroy();
             header('location: ./../index.php');
             exit();
         
+        case 'donhang':
+            include "donhang/donhang.php";
+            break;
+
+        case 'binhluan':
+            include "binhluan/binhluan.php";
+            break;
+    
+        case 'xoa_dh':
+            if(isset($_GET['ma_dh'])&&($_GET['ma_dh'] >0)){
+                delete_dh($_GET['ma_dh']);
+            }
+            $listsp=show_kh();
+            header('location: index.php?page=donhang');
+            break;
+
+        default:
+                    // Nếu không phải trang nào được xác định, chẳng hạn trang không tồn tại, chuyển hướng hoặc xử lý theo ý bạn.
+        break;
+
         }
 } else {
     include "home.php";
