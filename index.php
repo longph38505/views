@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include "views/header.php";
 include "model/sanpham.php";
 include "model/taikhoan.php";
@@ -52,10 +53,19 @@ if(isset($_GET['page'])){
                 move_uploaded_file($tmp_img, "./img/" . $img_name);
                         
                 $pass=$_POST['pass'];
+                $respass=$_POST['respass'];
+
+                if (empty($pass) || empty($respass)) {
+                    echo "Vui lòng nhập đầy đủ thông tin.";
+                } else if ($pass !== $respass) {
+                    echo "Mật khẩu và mật khẩu nhập lại không khớp.";
+                } else {
+                    insert_taikhoan($ten_kh, $email, $img_name, $pass);
+                    $thongbao="Đăng ký tài khoản thành công";
+                    header('location: index.php?page=login');
+                }
                 
-                insert_taikhoan($ten_kh, $email, $img_name, $pass);
-                $thongbao="Đăng ký tài khoản thành công";
-                header('location: index.php?page=login');
+                
             }
             include "taikhoan/register.php";
             break;
@@ -95,8 +105,8 @@ if(isset($_GET['page'])){
             break;
         
         
-            include "taikhoan/login-admin.php";
-            break;
+            // include "taikhoan/login-admin.php";
+            // break;
             
         case 'login-admin':
 
@@ -138,7 +148,7 @@ if(isset($_GET['page'])){
                 if ($_FILES['hinh_anh']['error'] == 0) {
                     $img_name = $_FILES['hinh_anh']['name'];
                     $tmp_img = $_FILES['hinh_anh']['tmp_name'];
-                    move_uploaded_file($tmp_img, "./../img/" . $img_name);
+                    move_uploaded_file($tmp_img, "img/" . $img_name);
                 } else {
                         
                     $img_name = $chay['hinh_anh'];

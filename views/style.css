@@ -246,9 +246,10 @@ body {
 }
 
 #product1 .Pro-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 20px;
     flex-wrap: wrap;
 }

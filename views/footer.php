@@ -1,6 +1,6 @@
 <footer class="section-p1" style="width: 100%;">
         <div class="col">
-            <img class="logo" src="./img/logo.png" alt="">
+            <img class="logo" src="./img/logo.png" style="width: 100px; height: 100px;" alt="">
             <h4>Contact</h4>
             <p><strong>Address: </strong>Tòa nhà FPT Polytechnic, đường Trịnh Văn Bô, <br>phường Phương Canh, quận Nam
                 Từ

@@ -22,6 +22,11 @@
     .actions button {
       margin-left: 5px;
     }
+    .bn a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
   </style>
   <title>Quản lí khách hàng</title>
 </head>
@@ -50,11 +55,11 @@
                    ?>
 
                      <tr>
-                     <td style="vertical-align: middle;"> <?php echo $list['ma_kh'] ?> </td>
+                     <td  style="vertical-align: middle;"> <?php echo $list['ma_kh'] ?> </td>
                      <td style="vertical-align: middle;"><?php echo $list['ten_kh'] ?></td>
                      <td><img src=" ./../img/<?php echo $list['hinh_anh'] ?>" style="width: 150px; height: 100px;" alt=""></td>
                      <td style="vertical-align: middle;"><?php echo $list['email'] ?></td>
-                     <td style="vertical-align: middle;">
+                     <td class="bn" style="vertical-align: middle;">
                        <button class="btn btn-danger"><a href="<?php echo $xoa ?>">Xóa</a></button>
                      </td>
                 <?php   } 

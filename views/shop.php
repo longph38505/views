@@ -86,7 +86,7 @@
                     <div class="des">
                         <span style="color: red;"><?php echo $show['ten_loai'] ?></span>
                         <h4><?php echo $show['ten_sp'] ?></h4>
-                        <p style="font-size: 10px;"><?php echo $show['so_luong'] ?></p>
+                        <p style="font-size: 10px;">Số lượng: <?php echo $show['so_luong'] ?></p>
                         <h5><?php echo $show['gia'] ?> VNĐ</h5>
                         </div>
                             <a href="<?php echo $id ?>"><i class="fas fa-shopping-cart cart"></i></a>

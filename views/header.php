@@ -12,6 +12,9 @@
 
 </head>
 <style>
+    body{
+        width:100%;
+    }
     #navbar li a.active {
     color: black;
     }
@@ -27,11 +30,39 @@
     display: none;
     left: 20px;
     }
+    header img{
+        width: 100px;
+        height:100px;
+    }
+    #product1 .Pro-container {
+    display: flex;
+    /* display: grid;
+    grid-template-columns: auto auto auto auto; */
+
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+
+#product1 .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
 </style>
 <body>
 
     <header id="header">
-        <a href="#"><img src="./img/logo.png" class="logo" alt="">
+        <a href="index.php?page=home"><img src="img/logo.png" alt="" >
         </a>
 
         <nav>
@@ -54,9 +85,14 @@
                 
                 
                     <?php  
-                        if(isset($_SESSION['email'])){ ?>
+                        if(isset($_SESSION['email'])){
+                            $email=$_SESSION['email'];
+                            ?>
                         <!-- Hiển thị phần tài khoản đã đăng nhập -->
-                        <li><a href="index.php?page=taikhoan"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!-- nút tài khoản --> <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a></li>
+                        
+                        <li><a href="index.php?page=taikhoan">
+                            <img src="img/<?php echo $email['hinh_anh'] ?>" style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid;" alt="">
+                        </a></li>
                         <li  id="lg-bag"><a class="active" href="index.php?page=cart"><i class="fas fa-shopping-bag"></i></a></li>  <!-- nút giỏ hàng -->
 
                         <?php }else{ ?>

@@ -50,7 +50,7 @@
                             <td style="vertical-align: middle;"><?php echo $show['ten_sp'] ?></td>
                             <td style="vertical-align: middle;"><?php echo $show['ngay_nhap'] ?></td>
                             <td style="vertical-align: middle;"><?php echo $show['trang_thai'] ?></td>
-                            <td><img src=" ./../img/<?php echo $show['img'] ?>" style="width: 150px; height: 100px;" alt=""></td>
+                            <td><img src=" ./../img/<?php echo $show['img'] ?>" style="width: 100px; height: 60px;" alt=""></td>
                             <td style="vertical-align: middle;"><?php echo $show['mo_ta'] ?></td>
                             <td style="vertical-align: middle;"><?php echo $show['ten_loai'] ?></td>
                             <td style="vertical-align: middle;"><?php echo $show['so_luong'] ?></td>

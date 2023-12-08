@@ -1,3 +1,12 @@
+<style>
+    .bn a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+</style>
+
+
 <center>
     <h1>loại hang</h1>
 </center>
@@ -7,7 +16,7 @@
                 <tr>
                     <th>MÃ loại</th>
                     <th scope="col">tên loại</th>
-                    <th colspan="2" scope="col"><a href="index.php?page=add_dm">thêm mới</a></th>
+                    <th colspan="2" scope="col" class="bn"><a href="index.php?page=add_dm">thêm mới</a></th>
                 </tr>
             </thead>
 
@@ -23,8 +32,8 @@ foreach ($listdanhmuc as $list) {
     <tr>
         <td><?php echo $list['ma_loai'] ?></td>
         <td><?php echo $list['ten_loai'] ?></td>
-        <td><a href="<?php echo $sua ?>">Sửa</a></td> <!-- Thêm biến $sua vào đường dẫn -->
-        <td><a href="<?php echo $xoa ?>">Xóa</a></td>
+        <td class="bn"><a href="<?php echo $sua ?>">Sửa</a></td> <!-- Thêm biến $sua vào đường dẫn -->
+        <td class="bn"><a href="<?php echo $xoa ?>">Xóa</a></td>
     </tr>
     <?php
 }

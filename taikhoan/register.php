@@ -12,7 +12,7 @@
             margin-left: 35%;
             padding-top: 15px;
             width: 450px;
-            height: 550px;
+            height: 700px;
             border: 1px solid;
             border-top-right-radius: 20px;
             border-bottom-left-radius: 20px;
@@ -41,21 +41,54 @@
         <div class="form-group">
             <label for="">Nhập tên</label>
             <input type="Text" class="form-control" id="" name="ten_kh" style="width:400px;"><br>
+            
         </div>
 
         <div class="form-group">
             <label for="">nhập mail</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="email" style="width:400px;"><br>
+            <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="email" style="width:400px;">
+            <label style="color: red; font-size: 15px;">
+            <?php
+                    if (isset($_POST['login']) && empty($email)) {
+                        echo "Vui lòng nhập email";
+                    }
+                    ?>
+            </label><br><br>
         </div>
 
         <div class="form-group">
             <label for="">Nhập hình ảnh</label>
-            <input type="file" class="form-control" id="" name="hinh_anh" style="width:400px;"><br>
+            <input type="file" class="form-control" id="" name="hinh_anh" style="width:400px;">
         </div>
 
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="" name="pass" style="width:400px;"><br>
+            <label for="exampleInputPassword1">Nhập mật khẩu</label>
+            <input type="password" class="form-control" id="" name="pass" style="width:400px;">
+            <label style="color: red; font-size: 15px;">
+            <?php
+                    if (isset($_POST['login']) && empty($pass)) {
+                        echo "Vui lòng nhập mật khẩu";
+                    }
+                    ?>
+            </label><br><br>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
+            <input type="password" class="form-control" id="" name="respass" style="width:400px;">
+            <label style="color: red; font-size: 15px;">
+            <?php
+                    if (isset($_POST['login']) && empty($respass)) {
+                        echo "Vui lòng nhập mật khẩu";
+                    }
+                    ?>
+            </label>
+            <label style="color: red; font-size: 15px;">
+            <?php
+                    if (isset($_POST['login']) && ($respass != $pass)) {
+                        echo "Mật khẩu không chính xác";
+                    }
+                    ?>
+            </label><br><br>
         </div>
         
         <div class="form-group">
@@ -67,13 +100,6 @@
         <input type="submit" class="btn2" name="dangky" value="Đăng ký">
         </center>
     </form>
-    </div>
-    <div>
-        <?php
-            if(isset($thongbao)&&($thongbao=!"")){
-                echo $thongbao;
-            }
-        ?>
     </div>
 </body>
 </html>

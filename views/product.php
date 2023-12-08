@@ -54,7 +54,7 @@
       color: #007bff;
     }
 .scroll-container  {
-  width: 580px; 
+  width: 500px; 
   height: 200px; 
   overflow-y: scroll; 
   border: 1px solid #ccc; 
@@ -73,14 +73,17 @@ display: flex;
 .nhap-bl{
 padding: 10px;
 background-color: #4CAF50; 
-width: 145px;
+width: 100px;
 height: 45px;
-
+margin-top: -10px;
+color: white;
+font-weight: 600;
 }
 .comment-form input[type="text"],
   .comment-form textarea {
-    width: 650px;
-    padding: 10px;
+    width: 630px;
+    height: 45px;
+    padding-top: 10px;
     padding-left: 30px;
     /* margin-bottom: 10px; */
     border: 1px solid #ccc;
@@ -94,6 +97,23 @@ height: 45px;
 } */
 
 </style>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var quantityInput = document.querySelector('input[name="so_luong_gh"]');
+            var priceInput = document.querySelector('input[name="gia"]');
+            var totalPriceElement = document.getElementById('totalPrice');
+
+            // Update total price when quantity changes
+            quantityInput.addEventListener('input', function () {
+                var quantity = parseInt(quantityInput.value);
+                var price = parseFloat(priceInput.value);
+                var totalPrice = quantity * price;
+
+                // Display the updated total price
+                totalPriceElement.innerText = totalPrice + 'Đ';
+            });
+        });
+    </script>
 <body>
 
 <?php
@@ -121,7 +141,7 @@ height: 45px;
         <div class="single-pro-details">
             <h6><?php echo $chay['ten_loai'] ?></h6>
             <h4><?php echo $chay['ten_sp'] ?></h4>
-            <h2><?php echo $chay['gia'] ?>Đ</h2>
+            <h2><span id="totalPrice"><?php echo $chay['gia'] ?>Đ</span></h2>
 
        
         <form action="index.php?page=add_cart" method="POST">
@@ -131,6 +151,7 @@ height: 45px;
             <input type="hidden" name="gia" value="<?php echo $chay['gia'] ?>">
             <input type="hidden" name="so_luong" value="<?php echo $chay['so_luong'] ?>">
             <input type="submit" style="width: 214px;" class="btn2" name="submit" value="Thêm vào giỏ hàng">
+            <input type="submit" style="width: 214px;" class="btn2"  value="Mua hàng">
         </form>
             <h4>Mô tả</h4>
             <span><?php echo $chay['mo_ta'] ?>
@@ -143,7 +164,8 @@ height: 45px;
 
     <div>
     <div class="comment-form">
-    <form method="POST" action="index.php?page=binhluan">
+    <form method="POST" action="index.php?page=binhluan" style="margin-left: 30px;">
+    <h3 style="">Bình luận:</h3>
 
     <div class="scroll-container">
     <?php  
@@ -154,24 +176,33 @@ height: 45px;
 
         foreach($binhluan as $binhluan){
     ?>
-        <div>
-        <p><b><?php echo $binhluan['ten_kh'] ?>:</span></b><span><?php echo $binhluan['nd_bl'] ?> <?php echo $binhluan['ngay_bl'] ?></p>
+        <div style="width: 500px; ">
+        
+        <p style=""><b style="margin-left: -93px;"><?php echo $binhluan['ten_kh'] ?>:</span></b><span><?php echo $binhluan['nd_bl'] ?> 
+        <p style="margin-left: 303px; font-size: 11px;"><?php echo $binhluan['ngay_bl'] ?></p></p>
         
         </div>
         <?php } ?>
         </div>
 
 <!-- <textarea  name="comment" ></textarea> -->
-      <div class="div-fload" >
-      <input  type="text" placeholder="Nhập bình luận của bạn" name="nd_bl" id="">
-      <input type="hidden" name="ma_sp" value="<?php echo $chay['ma_sp'] ?>">
-      <input type="hidden" name="ma_kh" value="<?php echo $email['ma_kh'] ?>" id="">
-      <br>
-      <div style="padding: 10px; padding-top: 10px; " >
-      <input class="nhap-bl" class="sumbit"type="submit" name="submit" value="Bình luận">
-      </div>
+            <?php  
+                    if(isset($_SESSION['email'])){ ?>
+                    <div class="div-fload" >
+                        <input  type="text" placeholder="Nhập bình luận của bạn" name="nd_bl" id="" style="width: 390px;">
+                        <input type="hidden" name="ma_sp" value="<?php echo $chay['ma_sp'] ?>">
+                        <input type="hidden" name="ma_kh" value="<?php echo $email['ma_kh'] ?>" id="">
+                        <br>
+                    <div style="padding: 10px; padding-top: 10px; " >
+                        <input class="nhap-bl" class="sumbit"type="submit" name="submit" value="Bình luận">
+                    </div>
 
-      </div>
+                    </div>
+                    <?php }else{ ?>
+                    <!-- Hiển thị nút đăng nhập khi chưa đăng nhập -->
+                    
+            <?php } ?>
+      
 
     </form>
     </div>
@@ -184,7 +215,7 @@ height: 45px;
 
 
     <!-- ---------------------------------------------------------------------------------- -->
-
+<!-- 
     <section id="product1" class="section-p1">
         <h2>Featured Products</h2>
         <p>Summer Collecton New Mordern Design</p>
@@ -262,7 +293,7 @@ height: 45px;
                 <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     
 </body>

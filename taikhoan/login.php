@@ -12,7 +12,7 @@
             margin-left: 35%;
             padding-top: 50px;
             width: 450px;
-            height: 420px;
+            height: 480px;
             border: 1px solid;
             border-top-right-radius: 20px;
             border-bottom-left-radius: 20px;
@@ -40,12 +40,26 @@
     <form action="index.php?page=login" method="POST">
         <div class="form-group">
             <label for="exampleInputEmail1">nhập mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" style="width:400px;"><br>
+            <input type="email" class="form-control"  aria-describedby="emailHelp" name="email" style="width:400px;">
+            <label style="color: red; font-size: 15px;">
+            <?php
+                    if (isset($_POST['login']) && empty($email)) {
+                        echo "Vui lòng nhập email";
+                    }
+                    ?>
+            </label><br><br>
         </div>
 
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="pass" style="width:400px;"><br>
+            <input type="password" class="form-control"  name="pass" style="width:400px;">
+            <label style="color: red; font-size: 15px;">
+            <?php
+                    if (isset($_POST['login']) && empty($pass)) {
+                        echo "Vui lòng nhập mật khẩu";
+                    }
+                    ?>
+            </label><br><br>
         </div>
         
         <div class="form-group">
@@ -59,12 +73,7 @@
     </form>
     </div>
 
-    <div>
-        <?php
-            if(isset($thongbao)&&($thongbao=!"")){
-                echo $thongbao;
-            }
-        ?>
-    </div>
+    
+
 </body>
 </html>

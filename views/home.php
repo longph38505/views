@@ -1,3 +1,14 @@
+<style>
+    .tong{  
+
+        display: grid;
+        grid-template-columns: 250px 250px 250px 250px ;
+        justify-content: space-evenly;
+        padding-top: 40px;
+        padding-left: 50px;      
+    }
+</style>
+
 <section id="hero">
         <h4>Trao đổi ưu đãi</h4>
         <h2>Ưu đãi siêu giá trị</h2>
@@ -6,70 +17,85 @@
         <button>Mua ngay</button>
     </section>
 
+    <!-- <section id="banner" class="section-m1">
+        <h4>Khuyến mãi</h4>
+        <h2>Giảm giá tới 70% - Tất cả áo thun &; phụ kiện</h2>
+    </section> -->
 
-    <section id="product1" class="section-p1">
-            <h2>Sản phẩm chính</h2>
-            <?php
+
+        <center>
+        <h2 style="margin-top: 50px;">Sản phẩm chính</h2>
+        </center>
+    <section class="tong">
+    
+<?php
         
-        $sql= "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai=loai_hang.ma_loai 
-        WHERE trang_thai ='chinh' ORDER BY ma_sp DESC LIMIT 4";
+        $sql= "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai=loai_hang.ma_loai WHERE trang_thai like '%chinh%' ORDER BY ma_sp DESC LIMIT 4";
         $showsp= pdo_query($sql);               
         foreach($showsp as $show){
           extract($show);
           $ma_sp=$show['ma_sp'];
           $id="index.php?page=product&ma_sp=".$ma_sp;
           ?>
-        
-        <div class="Pro-container">
-            <div class="pro">
-                <img src="img/<?php echo $show['img'] ?>" alt="" style="height: 200px">
-                <div class="des">
-                    <span><?php echo $show['ten_loai'] ?></span>
-                    <h5><?php echo $show['ten_sp'] ?></h5>
-                    
-                    <h4><?php echo $show['gia'] ?>Đ</h4>
-
+            <section id="product1" class="section-p1">
+            <div class="Pro-container">
+                <div class="pro" >
+                    <img style="width: 230px; height: 200px;" src="img/<?php echo $show['img'] ?>" alt="">
+                    <div class="des">
+                        <span style="color: red;"><?php echo $show['ten_loai'] ?></span>
+                        <h4><?php echo $show['ten_sp'] ?></h4>
+                        <p style="font-size: 10px;">Số lượng: <?php echo $show['so_luong'] ?></p>
+                        <h5><?php echo $show['gia'] ?> VNĐ</h5>
+                        </div>
+                            <a href="<?php echo $id ?>"><i class="fas fa-shopping-cart cart"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <a href="<?php echo $id ?>"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
-            <?php }?>
+    </section>
+        <?php } ?>
+</section>
     
             
 <!-- --------------------------------------------------------------------------------- -->
     <section id="banner" class="section-m1">
-        <h4>Repair Services</h4>
-        <h2>Up to <span>70% Off</span> - All t-Shirts & Accessories</h2>
-        <button class="normal">Explore more</button>
+        <h2>Khuyến mãi</h2>
+        <h4>Giảm giá tới 70% - Tất cả áo thun</h4>
     </section>
 
-    <section id="product1" class="section-p1">
-        <h2>Sản phẩm khuyến mại</h2>
-        <?php
-    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai=loai_hang.ma_loai WHERE trang_thai ='sale' ORDER BY ma_sp DESC LIMIT 4";
-    $showspdb = pdo_query($sql);
-    foreach ($showspdb as $showsp) {
-        extract($showsp);
-        $ma_sp = $showsp['ma_sp'];
-        $id = "index.php?page=product&ma_sp=" . $ma_sp;
-    ?>
+    <center>
+        <h2 style="margin-top: 50px;">Sản phẩm Sale</h2>
+    </center>
 
-        <div class="Pro-container">
-            <div class="pro">
-                <img src="img/<?php echo $showsp['img'] ?>" alt="" style="height: 200px">
-                <div class="des">
-                    <span><?php echo $showsp['ten_loai'] ?></span>
-                    <h5><?php echo $showsp['ten_sp'] ?></h5>
-
-                    <h4><?php echo $showsp['gia'] ?>Đ</h4>
-
+    <section class="tong">
+    
+<?php
+        
+        $sql= "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai=loai_hang.ma_loai WHERE trang_thai like '%sale%' ORDER BY ma_sp DESC LIMIT 4";
+        $showsp= pdo_query($sql);               
+        foreach($showsp as $show){
+          extract($show);
+          $ma_sp=$show['ma_sp'];
+          $id="index.php?page=product&ma_sp=".$ma_sp;
+          ?>
+            <section id="product1" class="section-p1">
+            <div class="Pro-container">
+                <div class="pro" >
+                    <img style="width: 230px; height: 200px;" src="img/<?php echo $show['img'] ?>" alt="">
+                    <div class="des">
+                        <span style="color: red;"><?php echo $show['ten_loai'] ?></span>
+                        <h4><?php echo $show['ten_sp'] ?></h4>
+                        <p style="font-size: 10px;">Số lượng: <?php echo $show['so_luong'] ?></p>
+                        <h5><?php echo $show['gia'] ?> VNĐ</h5>
+                        </div>
+                            <a href="<?php echo $id ?>"><i class="fas fa-shopping-cart cart"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <a href="<?php echo $id ?>"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
-        <?php
-         } 
-        ?>
-            
     </section>
+        <?php } ?>
+</section>
 
     <section id="sm-banner" class="section-p1">
         <div class="banner-box">

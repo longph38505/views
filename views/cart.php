@@ -20,13 +20,13 @@
 <table width="100%">
     <thead>
         <tr>
-            <td>Xóa</td>
+            <td>Chọn</td>
             <td>Hình ảnh</td>
             <td>Tên sản phẩm</td>
             <td>Giá</td>
             <td>Số lượng</td>
             <td>Tổng tiền</td>
-            <td>Đặt hàng</td>
+            <td>Xóa</td>
         </tr>
     </thead>
     <tbody>
@@ -52,13 +52,13 @@
                     $id="index.php?page=add_dh&ma_gh=".$ma_gh;
             ?>
         <tr>
-            <td><a href="<?php echo $xoa ?>"><i class="fas fa-times-circle"></i></a></td>
+            <td><input type="checkbox" name="" id=""></td>
             <td><img src="img/<?php echo $show['img'] ?>" alt=""></td>
             <td><?php echo $show['ten_sp'] ?></td>
             <td><?php echo $show['gia'] ?></td>
             <td><input type="number" value="<?php echo $show['so_luong_gh'] ?>" min="0"></td>
             <td><?php echo $show['thanh_tien'] ?></td>
-            <td><a href="<?php echo $id ?>">Mua</i></a></td>
+            <td><a href="<?php echo $xoa ?>"><i class="fas fa-times-circle"></i></a></td>
         </tr>
         <?php } ?>
     </tbody>

@@ -20,9 +20,7 @@ if(isset($_GET['page'])){
     $page_path = str_replace('/admin/', '', $page);
     
     switch ($page_path) {
-        case 'home':
-            include "home.php";
-            break;
+        
         case 'sanpham':
             include "sanpham/sanpham.php";
             break;
@@ -182,6 +180,6 @@ if(isset($_GET['page'])){
 
         }
 } else {
-    include "home.php";
+    include "danhmuc/list.php";
 }
 ?>

@@ -34,7 +34,7 @@
                 <th scope="col">Hình ảnh</th> 
                 <th scope="col">số lượng</th>
                 <th scope="col">Thành tiền</th>
-                <th scope="col">Xóa</th>
+                <!-- <th scope="col">Xóa</th> -->
                 </tr>
             </thead>
 
@@ -59,7 +59,7 @@
                             <td><img src=" ./../img/<?php echo $show['img'] ?>" style="width: 150px; height: 100px;" alt=""></td>
                             <td style="vertical-align: middle;"><?php echo $show['so_luong_dh'] ?></td>
                             <td style="vertical-align: middle;"><?php echo $show['tong_tien'] ?></td>
-                            <td style="vertical-align: middle;"><a href="<?php echo $xoa ?>">Xóa</a></td>
+                            <!-- <td style="vertical-align: middle;"><a href="<?php echo $xoa ?>">Xóa</a></td> -->
                         </tr>
                    <?php }
                 ?>

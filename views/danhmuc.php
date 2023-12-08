@@ -85,6 +85,7 @@
         $ma_loai = $_GET['ma_loai']; // Lấy giá trị từ tham số ma_loai trên URL
         $sql = "SELECT * FROM loai_hang WHERE ma_loai='$ma_loai'";
         $chay = pdo_query_one($sql);
+        $ten_loai=$chay['ten_loai'];
     }
     ?>
     
@@ -111,7 +112,7 @@
     <section class="tong">
         <?php
         $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai=loai_hang.ma_loai 
-        WHERE loai_hang.ma_loai='$ma_loai' ORDER BY ma_sp DESC LIMIT 12";
+        WHERE loai_hang.ten_loai='$ten_loai' ORDER BY ma_sp DESC LIMIT 12";
         $showsp = pdo_query($sql);
         foreach ($showsp as $show) {
             $ma_sp = $show['ma_sp'];
@@ -124,7 +125,7 @@
                     <div class="des">
                         <span style="color: red;"><?php echo $show['ten_loai'] ?></span>
                         <h4><?php echo $show['ten_sp'] ?></h4>
-                        <p style="font-size: 10px;"><?php echo $show['so_luong'] ?></p>
+                        <p style="font-size: 10px;">Số lượng: <?php echo $show['so_luong'] ?></p>
                         <h5><?php echo $show['gia'] ?> VNĐ</h5>
                     </div>
                     <a href="<?php echo $id ?>"><i class="fas fa-shopping-cart cart"></i></a>
